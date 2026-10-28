@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Inventario de Repuestos para Moto</title>
+
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Sistema de Gestión de Inventario</h1>
+        <p>Inventario de repuestos para motocicletas</p>
+    </header>
+
+    <main>
+
+        <!-- ============================= -->
+        <!-- AGREGAR REPUESTO -->
+        <!-- ============================= -->
+
+        <section class="formulario">
+
+            <h2>Agregar repuesto</h2>
+
+            <input
+                id="nombre"
+                type="text"
+                placeholder="Nombre del repuesto"
+            >
+
+            <input
+                id="precio"
+                type="number"
+                placeholder="Precio"
+            >
+
+            <input
+                id="stock"
+                type="number"
+                placeholder="Cantidad en stock"
+            >
+
+            <select id="tipo">
+
+                <option value="frenos">
+                    Frenos
+                </option>
+
+                <option value="motor">
+                    Motor
+                </option>
+
+                <option value="transmision">
+                    Transmisión
+                </option>
+
+                <option value="otros">
+                    Otros
+                </option>
+
+            </select>
+
+            <button onclick="agregarProducto()">
+                Agregar repuesto
+            </button>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- BÚSQUEDA Y FILTROS -->
+        <!-- ============================= -->
+
+        <section>
+
+            <h2>Buscar repuesto</h2>
+
+            <input
+                id="busqueda"
+                type="text"
+                placeholder="Escribe el nombre del repuesto"
+                oninput="filtrarProductos()"
+            >
+
+            <select
+                id="filtroCategoria"
+                onchange="filtrarProductos()"
+            >
+
+                <option value="todas">
+                    Todas las categorías
+                </option>
+
+                <option value="Frenos">
+                    Frenos
+                </option>
+
+                <option value="Motor">
+                    Motor
+                </option>
+
+                <option value="Transmisión">
+                    Transmisión
+                </option>
+
+                <option value="Otros">
+                    Otros
+                </option>
+
+            </select>
+
+            <button onclick="limpiarFiltros()">
+                Limpiar filtros
+            </button>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- REPUESTOS -->
+        <!-- ============================= -->
+
+        <section>
+
+            <h2>Repuestos disponibles</h2>
+
+            <button onclick="cargarProductos()">
+                Actualizar lista
+            </button>
+
+            <div id="productos"></div>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- MOVIMIENTOS -->
+        <!-- ============================= -->
+
+        <section>
+
+            <h2>Registrar movimiento</h2>
+
+            <input
+                id="productoMovimiento"
+                type="text"
+                placeholder="Nombre del repuesto"
+            >
+
+            <select id="tipoMovimiento">
+
+                <option value="entrada">
+                    Entrada
+                </option>
+
+                <option value="salida">
+                    Salida
+                </option>
+
+            </select>
+
+            <input
+                id="cantidadMovimiento"
+                type="number"
+                placeholder="Cantidad"
+                min="1"
+            >
+
+            <button onclick="registrarMovimiento()">
+                Registrar movimiento
+            </button>
+
+        </section>
+
+
+        <!-- ============================= -->
+        <!-- HISTORIAL -->
+        <!-- ============================= -->
+
+        <section>
+
+            <h2>Historial de movimientos</h2>
+
+            <button onclick="cargarMovimientos()">
+                Actualizar historial
+            </button>
+
+            <div id="movimientos"></div>
+
+        </section>
+
+    </main>
+
+
+    <script src="/script.js"></script>
+
+</body>
+
+</html>
